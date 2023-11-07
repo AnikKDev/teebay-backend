@@ -1,5 +1,5 @@
-const queries = `
+const userQueries = `
 #graphql queries
-userByEmail (email:string!): User 
+userByEmail (email:String!): User 
 `;
-export default queries;
+export default userQueries;

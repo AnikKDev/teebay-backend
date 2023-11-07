@@ -4,6 +4,7 @@ import productQueries from "./products/queries.products";
 import productResolvers from "./products/resolvers.products";
 import produtTypeDefs from "./products/typeDefs.products";
 import mutations from "./users/mutations.users";
+import userQueries from "./users/queries.users";
 import userResolvers from "./users/resolvers.users";
 import userTypeDefs from "./users/typeDef.users";
 
@@ -14,6 +15,7 @@ async function createApolloServer() {
     ${produtTypeDefs}
     type Query {
       ${productQueries}
+      ${userQueries}
    }
    type Mutation {
        ${mutations}

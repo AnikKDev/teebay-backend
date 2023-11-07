@@ -1,6 +1,8 @@
 import { UserServices } from "../../modules/users/users.service";
 
-const queries = {};
+const queries = {
+  userByEmail: UserServices.userByEmail,
+};
 const mutations = {
   signUp: UserServices.signUp,
 };
