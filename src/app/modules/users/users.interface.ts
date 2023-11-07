@@ -4,5 +4,6 @@ export type UserData = {
   email: string;
   phoneNumber: string;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
+  address: string;
 };

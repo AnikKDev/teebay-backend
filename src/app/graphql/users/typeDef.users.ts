@@ -1,12 +1,12 @@
-import mutations from "./mutations.users";
-import queries from "./queries.users";
-
 const typeDefs = `
-type Query {
-   ${queries}
-}
-type Mutation {
-    ${mutations}
+type User {
+    firstName: String!
+    lastName: String!
+    email: String!
+    address: String!
+    phoneNumber: String!
+    password: String!
+    confirmPassword: String!
 }
 `;
 

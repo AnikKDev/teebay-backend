@@ -1,5 +1,5 @@
 const mutations = `
 #graphql mutations
-createUser(firstName: String, lastName: String, email: String, password: String!, salt: String!, profileImageURL: String!): String
+signUp(firstName: String, lastName: String, email: String, password: String!, address:String!, phoneNumber:String!, confirmPassword: String!): User
 `;
 export default mutations;

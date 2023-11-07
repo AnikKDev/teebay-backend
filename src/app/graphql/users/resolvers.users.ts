@@ -2,7 +2,7 @@ import { UserServices } from "../../modules/users/users.service";
 
 const queries = {};
 const mutations = {
-  createUser: UserServices.testUser,
+  signUp: UserServices.signUp,
 };
 const resolvers = {
   queries,
