@@ -7,6 +7,15 @@ type Product {
     rentalAmount: String!
     rentalPeriod: String!
 }
+type OrderedProducts {
+    productId: String
+    userEmail: String
+}
+type RentedProducts {
+    productId: String
+    userEmail: String
+}
+
 `;
 
 export default produtTypeDefs;

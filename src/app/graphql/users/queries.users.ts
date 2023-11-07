@@ -1,5 +1,5 @@
 const queries = `
 #graphql queries
-_empty: String
+userByEmail (email:string!): User 
 `;
 export default queries;

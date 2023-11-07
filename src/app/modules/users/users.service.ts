@@ -41,7 +41,17 @@ const signUp = async (
   return result;
 };
 
+const userByEmail = async (email: string): Promise<UserData | null> => {
+  const result = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+  return result;
+};
+
 export const UserServices = {
   testUser,
   signUp,
+  userByEmail,
 };

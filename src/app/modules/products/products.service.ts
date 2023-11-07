@@ -10,7 +10,40 @@ const addProduct = async (
   });
   return result;
 };
+const allProducts = async (): Promise<ProductData[] | null> => {
+  const result = await prisma.product.findMany({});
+  return result;
+};
+
+const allRentedProducts = async () => {
+  const result = await prisma.rent.findMany({});
+  return result;
+};
+const allOrderedProducts = async () => {
+  const result = await prisma.order.findMany({});
+  return result;
+};
+
+const productById = async (
+  _: any,
+  {
+    id,
+  }: {
+    id: string;
+  }
+): Promise<ProductData | null> => {
+  const result = await prisma.product.findUnique({
+    where: {
+      id,
+    },
+  });
+  return result;
+};
 
 export const ProductService = {
   addProduct,
+  allProducts,
+  allRentedProducts,
+  allOrderedProducts,
+  productById,
 };
