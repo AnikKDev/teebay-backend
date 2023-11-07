@@ -14,14 +14,17 @@ datasource db {
 // users model
 
 model User {
-  id          String @id @default(uuid())
+  id          String   @id @default(uuid())
   firstName   String
   lastName    String
   address     String
-  email       String
+  email       String   @unique
   phoneNumber String
   password    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
+  @@index([email])
   @@map("users")
 }
 
@@ -34,6 +37,8 @@ model Product {
   price        String
   rentalAmount String
   rentalPeriod String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   @@map("products")
 }
