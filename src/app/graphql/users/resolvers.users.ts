@@ -4,8 +4,8 @@ const queries = {};
 const mutations = {
   signUp: UserServices.signUp,
 };
-const resolvers = {
+const userResolvers = {
   queries,
   mutations,
 };
-export default resolvers;
+export default userResolvers;

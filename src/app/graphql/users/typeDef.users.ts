@@ -1,4 +1,4 @@
-const typeDefs = `
+const userTypeDefs = `
 type User {
     firstName: String!
     lastName: String!
@@ -10,4 +10,4 @@ type User {
 }
 `;
 
-export default typeDefs;
+export default userTypeDefs;
