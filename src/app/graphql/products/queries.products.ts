@@ -4,11 +4,9 @@ allProducts: [Product]
 
 productById (id:ID!): Product!
 
-allOrderedProducts: [
-    OrderedProducts
-]
+orders (email:String): [OrderedProducts]
 
-allRentedProducts: [
+rents: [
     RentedProducts
 ]
 `;

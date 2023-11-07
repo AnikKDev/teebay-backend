@@ -8,8 +8,8 @@ type User {
     password: String!
     confirmPassword: String!
 
-    orderedProducts: [OrderedProducts]
-    rentedProducts: [RentedProducts]
+    orders: [OrderedProducts!]
+    rents: [RentedProducts!]
 }
 `;
 

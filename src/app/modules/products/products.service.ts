@@ -15,16 +15,21 @@ const allProducts = async (): Promise<ProductData[] | null> => {
   return result;
 };
 
-const allRentedProducts = async () => {
+const rentedProducts = async () => {
   const result = await prisma.rent.findMany({
     select: {
-      User: true,
+      user: true,
     },
   });
   return result;
 };
-const allOrderedProducts = async () => {
-  const result = await prisma.order.findMany({});
+const orderedProducts = async (_: any, { email }: { email: string }) => {
+  const result = await prisma.order.findMany({
+    where: {
+      userEmail: email,
+    },
+  });
+  console.log(result);
   return result;
 };
 
@@ -44,10 +49,36 @@ const productById = async (
   return result;
 };
 
+const createRent = async (
+  _: any,
+  data: { userEmail: string; productId: string }
+) => {
+  const result = await prisma.rent.create({
+    data,
+  });
+  return result;
+};
+
+const createOrder = async (
+  _: any,
+  data: { userEmail: string; productId: string }
+) => {
+  const result = await prisma.order.create({
+    data,
+    include: {
+      product: true,
+      user: true,
+    },
+  });
+  return result;
+};
+
 export const ProductService = {
   addProduct,
   allProducts,
-  allRentedProducts,
-  allOrderedProducts,
+  orderedProducts,
+  rentedProducts,
   productById,
+  createRent,
+  createOrder,
 };

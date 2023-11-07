@@ -2,8 +2,8 @@ import { ProductService } from "../../modules/products/products.service";
 
 const queries = {
   allProducts: ProductService.allProducts,
-  allOrderedProducts: ProductService.allOrderedProducts,
-  allRentedProducts: ProductService.allRentedProducts,
+  orders: ProductService.orderedProducts,
+  rents: ProductService.rentedProducts,
   productById: ProductService.productById,
 };
 const mutations = {

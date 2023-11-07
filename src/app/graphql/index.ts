@@ -1,4 +1,6 @@
 import { ApolloServer } from "@apollo/server";
+import ordersAndRentsMutations from "./ordersAndRents/mutations.ordersAndRents";
+import ordersAndRentsResolvers from "./ordersAndRents/resolvers.ordersAndRents";
 import productMutations from "./products/mutations.products";
 import productQueries from "./products/queries.products";
 import productResolvers from "./products/resolvers.products";
@@ -20,6 +22,7 @@ async function createApolloServer() {
    type Mutation {
        ${mutations}
        ${productMutations}
+       ${ordersAndRentsMutations}
    }
     `, //schema here
     resolvers: {
@@ -30,6 +33,7 @@ async function createApolloServer() {
       Mutation: {
         ...userResolvers.mutations,
         ...productResolvers.mutations,
+        ...ordersAndRentsResolvers.mutations,
       },
     },
   });
