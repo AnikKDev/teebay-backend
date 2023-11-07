@@ -24,6 +24,11 @@ model User {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
+  // relattions
+  orders Order[]
+  rents  Rent[]
+
+  // indexing with email. though we could use id for indexing. but need to add jwt for it that would take some time but it would be better that way.
   @@index([email])
   @@map("users")
 }
@@ -41,4 +46,28 @@ model Product {
   updatedAt    DateTime @updatedAt
 
   @@map("products")
+}
+
+// orders model
+model Order {
+  id        String   @id @default(uuid())
+  userEmail String
+  productId String
+  User      User?    @relation(fields: [userEmail], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("orders")
+}
+
+// rental model
+model Rent {
+  id        String   @id @default(uuid())
+  userEmail String
+  productId String
+  User      User?    @relation(fields: [userEmail], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("rents")
 }
