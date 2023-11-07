@@ -16,7 +16,11 @@ const allProducts = async (): Promise<ProductData[] | null> => {
 };
 
 const allRentedProducts = async () => {
-  const result = await prisma.rent.findMany({});
+  const result = await prisma.rent.findMany({
+    select: {
+      User: true,
+    },
+  });
   return result;
 };
 const allOrderedProducts = async () => {

@@ -7,6 +7,9 @@ type User {
     phoneNumber: String!
     password: String!
     confirmPassword: String!
+
+    orderedProducts: [OrderedProducts]
+    rentedProducts: [RentedProducts]
 }
 `;
 

@@ -10,10 +10,14 @@ type Product {
 type OrderedProducts {
     productId: String
     userEmail: String
+    product: Product
+    user: User
 }
 type RentedProducts {
     productId: String
     userEmail: String
+    product: Product
+    user: User
 }
 
 `;
