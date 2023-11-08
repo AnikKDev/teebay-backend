@@ -1,3 +1,5 @@
+import httpStatus from "http-status";
+import ApiError from "../../../errors/ApiError";
 import prisma from "../../../utils/prisma";
 import { UserData } from "./users.interface";
 
@@ -10,19 +12,34 @@ const testUser = async (
 
 const signUp = async (
   _: any,
-  { firstName, email, lastName, password, phoneNumber, address }: UserData
+  {
+    firstName,
+    email,
+    lastName,
+    password,
+    confirmPassword,
+    phoneNumber,
+    address,
+  }: UserData
 ): Promise<UserData | null> => {
-  const result = await prisma.user.create({
-    data: {
-      firstName,
-      email,
-      lastName,
-      password,
-      phoneNumber,
-      address,
-    },
-  });
-  return result;
+  if (password === confirmPassword) {
+    const result = await prisma.user.create({
+      data: {
+        firstName,
+        email,
+        lastName,
+        password,
+        phoneNumber,
+        address,
+      },
+    });
+    return result;
+  } else {
+    throw new ApiError(
+      httpStatus.NOT_ACCEPTABLE,
+      "Password and confirm password should be the same."
+    );
+  }
 };
 
 const userByEmail = async (
