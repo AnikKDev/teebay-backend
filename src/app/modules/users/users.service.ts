@@ -59,9 +59,10 @@ const userByEmail = async (
           product: true, // Include product details
         },
       },
+      products: true,
     },
   });
-
+  console.log(user);
   // Logging the output to see what is being returned by Prisma
   return user;
 };
@@ -84,6 +85,7 @@ const signIn = async (
       },
     },
   });
+
   if (!user) {
     throw new ApiError(
       httpStatus.NOT_FOUND,

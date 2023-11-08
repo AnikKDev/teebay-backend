@@ -10,6 +10,7 @@ type User {
 
     orders: [OrderedProducts!]
     rents: [RentedProducts!]
+    products: [Product!]
 }
 `;
 

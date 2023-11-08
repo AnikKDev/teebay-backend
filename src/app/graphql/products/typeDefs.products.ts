@@ -7,6 +7,7 @@ type Product {
     price: String!
     rentalAmount: String!
     rentalPeriod: String!
+    userEmail: String!
 }
 type ProductById {
     id: ID!
