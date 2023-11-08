@@ -6,7 +6,7 @@ type User {
     address: String!
     phoneNumber: String!
     password: String!
-    confirmPassword: String!
+    confirmPassword: String
 
     orders: [OrderedProducts!]
     rents: [RentedProducts!]
