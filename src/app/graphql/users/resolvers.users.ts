@@ -5,6 +5,7 @@ const queries = {
 };
 const mutations = {
   signUp: UserServices.signUp,
+  signIn: UserServices.signIn,
 };
 const userResolvers = {
   queries,

@@ -16,6 +16,8 @@ type ProductById {
     price: String!
     rentalAmount: String!
     rentalPeriod: String!
+    createdAt: String
+    
 }
 type OrderedProducts {
     id: ID!
@@ -30,7 +32,7 @@ type RentedProducts {
     id: ID!
     productId: String
     userEmail: String
-    product: Product
+    product: ProductById
     user: User
 }
 

@@ -63,12 +63,45 @@ const userByEmail = async (
   });
 
   // Logging the output to see what is being returned by Prisma
-
   return user;
+};
+const signIn = async (
+  _: any,
+  { email, password }: { email: string; password: string }
+): Promise<UserData | null> => {
+  const user = await prisma.user.findUnique({
+    where: { email },
+    include: {
+      orders: {
+        include: {
+          product: true, // Include product details
+        },
+      },
+      rents: {
+        include: {
+          product: true, // Include product details
+        },
+      },
+    },
+  });
+  if (!user) {
+    throw new ApiError(
+      httpStatus.NOT_FOUND,
+      "User with this email can not be found."
+    );
+  }
+  if (user.password === password) {
+    return user;
+  } else {
+    throw new ApiError(httpStatus.UNAUTHORIZED, "Invalid credentials.");
+  }
+
+  // Logging the output to see what is being returned by Prisma
 };
 
 export const UserServices = {
   testUser,
   signUp,
   userByEmail,
+  signIn,
 };
