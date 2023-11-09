@@ -22,24 +22,25 @@ const signUp = async (
     address,
   }: UserData
 ): Promise<UserData | null> => {
-  if (password === confirmPassword) {
-    const result = await prisma.user.create({
-      data: {
-        firstName,
-        email,
-        lastName,
-        password,
-        phoneNumber,
-        address,
-      },
-    });
-    return result;
-  } else {
+  // if (password === confirmPassword) {
+  const result = await prisma.user.create({
+    data: {
+      firstName,
+      email,
+      lastName,
+      password,
+      phoneNumber,
+      address,
+    },
+  });
+  return result;
+  // }
+  /*  else {
     throw new ApiError(
       httpStatus.NOT_ACCEPTABLE,
       "Password and confirm password should be the same."
     );
-  }
+  } */
 };
 
 const userByEmail = async (
