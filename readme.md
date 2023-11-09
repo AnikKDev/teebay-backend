@@ -182,3 +182,39 @@ Here's a brief overview of the main types used in the queries and mutations:
 - `password`: The user's password (not returned in queries for security reasons).
 - `address`: The user's address.
 - `phoneNumber`: The user's phone number.
+
+## Running the Project Without Docker
+
+Follow these steps to get the project running without Docker:
+
+```bash
+# Install dependencies
+npm install
+# or
+yarn
+
+# Run migrations
+npx prisma migrate dev
+# or
+npm run migrate
+# or
+yarn prisma migrate dev
+# or
+yarn migrate
+
+# Start the development server
+npm run dev
+# or
+yarn dev
+```
+
+## Running the Project With Docker
+
+To get started with Docker,
+
+```bash
+docker build -t teebay_backend .
+
+# Run the container
+docker run -p 8000:8000 teebay_backend
+```
